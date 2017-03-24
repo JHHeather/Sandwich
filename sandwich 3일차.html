@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+  </head>
+  <body>
+    
+    <script>
+
+    y = prompt("Year");
+    m = prompt("Month");
+    document.write(y+"."+m+"<br><br>");
+    document.write("Mon Tue Wed Thu Fri Sat Sun");
+    document.write("<br>");
+
+    day = (y-1)*365 + (y-(y%4))/4 - (y-(y%100))/100 + (y-(y%400))/400;
+    for(k=1; k<m; k++){
+        if(k==1||k==3||k==5||k==7||k==8||k==10||k==12){
+            day = day+31;
+        }
+        else if(k==4||k==6||k==9||k==11){
+           day = day+30;
+        }
+        else if((y%4==0&&y%100!=0)||y%400==0){
+            day = day+29;
+        }
+        else{
+            day = day+28;
+        }
+    }
+        if(m==1||m==3||m==5||m==7||m==8||m==10||m==12){
+            monthday = 31;
+            
+        }
+        else if(m==4||m==6||m==9||m==11){
+           monthday = 30;
+        }
+        else if((y%4==0&&y%100!=0)||y%400==0){
+            monthday = 29;
+        }    
+        else{
+            monthday = 28;
+        }
+
+    dd = 0;
+
+    for(j=0; j<day%7; j++){
+        document.write("-"+" ");
+        dd++;
+    }
+
+    for(i=1; i<=monthday; i++){
+        document.write(i+"  ");
+        dd++;
+        if(dd%7==0){
+            document.write("<br>");
+        }
+    }
+
+    </script>
+  </body>
+</html>
