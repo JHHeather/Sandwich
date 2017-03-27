@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+
+
+<script>
+
+/*
+    function human(a, h, n){
+        this.age = a;
+        this.height = h;
+        this.name = n;
+
+        this.tell = function(){alert(this.name);}
+        
+    }
+
+    var hyunjoon = new human(22, 170, hyunjoon);
+    var hyungjoo = new human(21, 170, hyungjoo);
+    var jaehui = new human(21, 160, jaehui);
+
+    jaehui.tell();
+*/
+
+//example
+
+    function myclass(n, p, r, t, d){
+        this.name = n;
+        this.professor = p;
+        this.room = r;
+        this.time = t;
+        this.day = d;
+    }
+
+    var automata = new myclass(automata, sunggukkim, 218, 13, monday);
+    var cognitive = new myclass(cognitive, jongsoo, 204, 9, friday);
+    var math = new myclass(math, hyunjin, 217, 15, tuesday);
+
+    a=(automata, cognitive, math);
+    function schedule(){
+        document.write("monday<br>");
+        for(i=0;i<3;i++){
+            if(a[i].day=="monday"){
+                document.write(a[i].time + ":" + a[i].name +" "+a[i].professor+" "+a[i].room+" <br>");
+            }
+        }
+        document.write("tuesday<br>");
+        for(i=0;i<3;i++){
+            if(a[i].day=="tuesday"){
+                document.write(a[i].time + ":" + a[i].name +" "+a[i].professor+" "+a[i].room+"<br>");
+            }
+        }
+    }
+    schedule();
+
+
+
+</script>
+
+</body>
+
+</html>
