@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset = "utf-8">
+    <title>music player</title>
+</head>
+
+<body>
+<script>
+    // music class 정의
+    function music(n, a, g, s, t){
+        this.name = n;
+        this.artist = a;
+        this.genre = g;
+        this.stars = s;
+        this.playTime = t;
+    }
+
+    // 새로운 playlist 자동 생성
+    function newPlayList(n, f, ff, l, num){
+        this.name = n;
+        this.list = [];
+        // 어떤 artist인 노래들로 리스트 생성
+        if(f == 1){
+            for(i=0; i<num; i++){
+                if(l[i].artist==ff)
+                    this.list.push(l[i]);
+            }
+        }
+        // 어떤 genre인 리스트 생성
+        else if(f == 2){
+            for(i=0; i<num; i++){
+                if(l[i].genre==ff)
+                    this.list.push(l[i]);
+            }
+        }
+        // 별점이 일정 숫자를 넘는 플레이 리스트 생성
+        else if(f == 3){
+            for(i=0; i<num; i++){
+                if(l[i].stars>=ff)
+                    this.list.push(l[i]);
+            }
+        }
+        // play time이 일정 숫자를 넘는 플레이 리스트 생성
+        else if(f == 4){
+            for(i=0; i<num; i++){
+                if(l[i].time>=ff)
+                    this.list.push(l[i]);
+            }
+        }
+        document.write(this.name + "<br>");
+        for(k=1; k<=this.list.length; k++){
+            document.write(k+". "+this.list[k-1]+"<br>");
+        }  
+    }
+    var musicList = [];
+    var playList = [];
+    function myPlayer(n){
+        this.addMusic = function(music){
+            musicList.push(music);
+        }
+        this.printMusic = function(){
+            document.write("My music<br>");
+            for(k=1; k<=musicList.length; k++){
+            document.write(k+". "+musicList[k-1].name+"<br>");
+            }  
+        }
+        this.addPlayList = function(pL){
+            playList.push(pL);
+        }
+        this.printPlayList = function(){
+            document.write("My playlist<br>");
+            for(k=1; k<=playList.length; k++){
+            document.write(k+". "+playList[k-1].name+"<br>");
+            }  
+        }
+    }
+    var D = music("D", "Dean", "Rnb", 5, 100);
+    var bubble = music("거품 안 넘치게 따라줘", "DynamicDuo", "hiphop", 5, 80);
+    var rookie = music("rookie", "RedVelbet", "dance", 3, 20);
+    var sushi = music("sushi", "billstacks", "hiphop", 4, 30);
+    var 넘어와 = music("넘어와", "Dean", "Rnb", 5, 70);
+
+    var jhPlayer = new myPlayer("jh");
+
+    jhPlayer.addMusic(D);
+    jhPlayer.addMusic(bubble);
+    jhPlayer.addMusic(rookie);
+    jhPlayer.addMusic(sushi);    
+    jhPlayer.addMusic(넘어와);
+
+    var Dean = newPlayList(Dean, 1, "Dean", musicList, musicList.length);
+    var best = newPlayList(best, 3, 4, musicList, musicList.length);
+
+</script>
+</body>
+</html>
